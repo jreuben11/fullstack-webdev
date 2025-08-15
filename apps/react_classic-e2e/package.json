@@ -1,0 +1,10 @@
+{
+  "name": "@fullstack-webdev/react_classic-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@fullstack-webdev/react_classic"
+    ]
+  }
+}
