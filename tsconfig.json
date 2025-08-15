@@ -8,6 +8,12 @@
     },
     {
       "path": "./apps/react_classic"
+    },
+    {
+      "path": "./apps/node_classic-e2e"
+    },
+    {
+      "path": "./apps/node_classic"
     }
   ]
 }

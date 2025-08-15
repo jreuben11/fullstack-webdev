@@ -1,0 +1,26 @@
+{
+  "name": "@fullstack-webdev/node_classic-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@fullstack-webdev/node_classic"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/node_classic-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@fullstack-webdev/node_classic:build",
+          "@fullstack-webdev/node_classic:serve"
+        ]
+      }
+    }
+  }
+}
