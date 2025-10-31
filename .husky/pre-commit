@@ -1,2 +1,2 @@
 echo "🔍 Running pre-commit checks on staged files..."
-bunx lint-staged
+npx lint-staged
