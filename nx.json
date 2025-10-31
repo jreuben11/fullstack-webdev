@@ -69,6 +69,16 @@
         "targetName": "test"
       },
       "exclude": ["apps/node_classic-e2e/**/*"]
+    },
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "testTargetName": "test"
+      },
+      "exclude": ["apps/tanstack-start/**/*"]
     }
   ],
   "targetDefaults": {

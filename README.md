@@ -1,82 +1,184 @@
-# FullstackWebdev
+# Full-Stack Web Development Experiments
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+**An Nx monorepo for advanced web development experiments and learning.**
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+This is a hands-on learning environment where cutting-edge web technologies are explored, organized, and preserved for future reference. Each experiment lives in its own isolated app or library project, making it easy to discover, run, and learn from.
 
-## Finish your CI setup
+## 🎯 Current Focus Areas
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/TIAEdAnRut)
+- **WebGPU** - GPU-accelerated graphics and compute
+- **Three.js & react-three-fiber** - 3D graphics in React
+- **Future explorations**: WebAssembly (WASM), WebTransport, and other cutting-edge web APIs
 
+## 📁 Workspace Structure
 
-## Run tasks
+```
+apps/
+├── react_classic/          # React 19 + Webpack + styled-components
+├── node_classic/           # Node.js/Express backend experiments
+├── tanstack-start/         # Full-stack SSR with TanStack Start
+└── threejs_explorations/   # Three.js + React Three Fiber (Vite)
+    └── Bento box grid layout with interactive 3D scenes
 
-To run the dev server for your app, use:
+packages/
+└── util/                   # Shared TypeScript utilities
+```
 
-```sh
+## 🚀 Technologies
+
+- **Nx 21.4.1** - Monorepo management and build orchestration
+- **React 19** - Modern React with concurrent features
+- **TypeScript 5.8** - Strict mode for type safety
+- **Three.js & React Three Fiber** - 3D graphics and WebGL
+- **TanStack Start** - SSR/SSG framework
+- **Tailwind CSS v4** + **shadcn/ui** - Modern styling
+- **Vitest** - Unit testing
+- **Playwright MCP** - Browser automation for visual testing
+
+## 🏃 Quick Start
+
+### View All Projects
+```bash
+npx nx show projects
+npx nx graph  # Visualize project dependencies
+```
+
+### Run Applications
+
+**Three.js Explorations** (Vite, port 4200)
+```bash
+npx nx serve threejs_explorations
+```
+
+**React Classic** (Webpack, port 4200)
+```bash
 npx nx serve react_classic
 ```
 
-To create a production bundle:
-
-```sh
-npx nx build react_classic
+**Node Classic** (Express backend)
+```bash
+npx nx serve node_classic
 ```
 
-To see all available targets to run for a project, run:
-
-```sh
-npx nx show project react_classic
+**TanStack Start** (SSR, port 3000)
+```bash
+cd apps/tanstack-start
+npm run dev
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### Testing & Linting
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+# Run tests for a project
+npx nx test threejs_explorations
 
-## Add new projects
+# Run linting
+npx nx lint threejs_explorations
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+# Run tests for all affected projects
+npx nx affected -t test
 
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app demo
+# Type check
+npx nx typecheck threejs_explorations
 ```
 
-To generate a new library, use:
+### Build Projects
 
-```sh
-npx nx g @nx/react:lib mylib
+```bash
+# Build a specific project
+npx nx build threejs_explorations
+
+# Build all affected projects
+npx nx affected -t build
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+## 🎨 Featured Project: Three.js Explorations
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+A showcase of interactive 3D graphics built with React Three Fiber, featuring:
+- **Bento box grid layout** with shadcn/ui components
+- **Graphite dark theme** from tweakcn.com
+- **Interactive 3D scenes**: Rotating cube, wireframe sphere, torus knot
+- **OrbitControls** for mouse/touch interaction
+- **Unit tests** with ResizeObserver polyfill for Three.js
+- **Playwright MCP** integration for automated visual testing
 
+## 🆕 Adding New Experiments
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Generate a New React App (Vite)
+```bash
+npx nx g @nx/react:app my-webgpu-app \
+  --bundler=vite \
+  --style=css \
+  --routing=true
+```
 
-## Install Nx Console
+### Generate a New React App (Webpack)
+```bash
+npx nx g @nx/react:app my-app \
+  --bundler=webpack \
+  --style=styled-components \
+  --routing=true
+```
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+### Generate a Library
+```bash
+npx nx g @nx/react:lib my-lib          # React library
+npx nx g @nx/js:lib my-utils           # Non-React library
+```
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Add Components to Existing Apps
+```bash
+npx nx g @nx/react:component my-experiment \
+  --project=threejs_explorations \
+  --directory=src/app
+```
 
-## Useful links
+### List Available Plugins
+```bash
+npx nx list                    # See all installed plugins
+npx nx list @nx/react          # See React plugin capabilities
+```
 
-Learn more:
+## 🔌 MCP Servers
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+This workspace uses Model Context Protocol (MCP) servers for enhanced development workflows:
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Playwright MCP
+Browser automation for visual testing and screenshot capture.
+
+**Setup:**
+```bash
+claude mcp add playwright -- npx -y @playwright/mcp@latest
+```
+
+**Verify:**
+```bash
+claude mcp list
+```
+
+After setup, you can use Claude Code to automate browser interactions, take screenshots of your experiments, and perform visual testing.
+
+## 🎓 Philosophy
+
+- **Compartmentalized experiments** - Each experiment is isolated and independent
+- **Learning-focused** - Document and explain what you're learning
+- **Discoverable** - Main pages link to experiments for easy browsing
+- **Latest versions** - Always use the latest stable versions of packages
+- **Type-safe** - Strict TypeScript configuration throughout
+
+## 📚 Resources
+
+**Project-Specific:**
+- [Nx Documentation](https://nx.dev)
+- [React 19](https://react.dev)
+- [Three.js](https://threejs.org)
+- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
+- [TanStack Start](https://tanstack.com/start)
+- [shadcn/ui](https://ui.shadcn.com)
+- [Tailwind CSS v4](https://tailwindcss.com)
+
+**Tools:**
+- [Nx Console](https://nx.dev/getting-started/editor-setup) - Editor extension for VSCode/IntelliJ
+- [tweakcn](https://tweakcn.com) - Theme editor for shadcn/ui

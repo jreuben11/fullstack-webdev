@@ -17,6 +17,9 @@
     },
     {
       "path": "./packages/util"
+    },
+    {
+      "path": "./apps/threejs_explorations"
     }
   ]
 }
