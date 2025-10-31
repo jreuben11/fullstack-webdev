@@ -162,6 +162,37 @@ claude mcp list
 
 After setup, you can use Claude Code to automate browser interactions, take screenshots of your experiments, and perform visual testing.
 
+## 🖥️ Development Environment
+
+### Zellij Layout
+
+This workspace includes a pre-configured Zellij layout for an optimal development experience with three panes:
+- **Claude Code** (top left) - AI pair programming assistant
+- **Shell** (bottom left) - Command line access
+- **Editor** (right) - Neovim for code editing
+
+**Start the development layout:**
+```bash
+# From workspace root
+zellij --layout .zellij/dev-layout.kdl
+
+# Or create an alias in your shell config (~/.zshrc or ~/.bashrc)
+alias dev='zellij --layout .zellij/dev-layout.kdl'
+```
+
+**Layout Features:**
+- Pre-configured 3-pane split (vertical left/right, horizontal top/bottom on left)
+- Claude Code auto-starts in top-left pane
+- Shell ready in bottom-left pane
+- Editor pane on right (focused by default)
+- Persistent across sessions
+
+**Customize the layout:**
+Edit `.zellij/dev-layout.kdl` to adjust:
+- Pane sizes (currently 60/40 split on left)
+- Startup commands
+- Pane names and focus
+
 ## 🎓 Philosophy
 
 - **Compartmentalized experiments** - Each experiment is isolated and independent
