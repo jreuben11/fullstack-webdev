@@ -39,6 +39,8 @@ packages/
 
 ## 🏃 Quick Start
 
+> **📖 New to this repo?** Check out [WORKFLOW.md](./WORKFLOW.md) for the complete development workflow, git hooks setup, and best practices.
+
 ### View All Projects
 ```bash
 npx nx show projects

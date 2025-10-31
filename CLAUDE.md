@@ -385,3 +385,6 @@ npx nx affected:graph
 - react-three-fiber: https://docs.pmnd.rs/react-three-fiber
 - I have neovim open in another pane [Image #1] as we go, always guide me on what to do there when necessary, with clear concise explanaition and specific keys to use
 - default to using bun instead of npm
+- workflow:
+- always start on a new git branch
+- before commit: all tests must pass. project readme must be updated to reflect new feature, with nx command to test
